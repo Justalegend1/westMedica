@@ -36,3 +36,111 @@
     transform: rotate(360deg);
   }
 }
+/*Стили для таблицы*/
+table {
+  border-spacing: 0;
+  empty-cells: hide;
+  }
+  td {
+  padding: 10px 20px;
+  text-align: center;
+  border-bottom: 1px solid #F4EEE8;
+  transition: all 0.5s linear;
+  }
+  tr:first-child {
+  text-align: left;
+  color: #3D3511;
+  font-weight: bold;
+  }
+  th {
+  padding: 10px 20px;
+  color: #3D3511;
+  border-bottom: 1px solid #F4EEE8;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  }
+  td:nth-child(even) {
+  background: #F6D27E;
+  }
+  td:nth-child(odd) {
+  background: #D1C7BF;
+  }
+  th:nth-child(even)  {
+  background: #F6D27E;
+  }
+  th:nth-child(odd)  {
+  background: #D1C7BF;
+  }
+  .round-top {
+  border-top-left-radius: 5px;
+  }
+  .round-bottom {
+  border-bottom-left-radius: 5px;
+  }
+  tr:hover td{
+  background: #D1C7BF;
+  font-weight: bold;
+  }
+
+  /*Кнопка нового юзера*/
+  .custom-btn {
+    width: 130px;
+    height: 40px;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+     box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+     7px 7px 20px 0px rgba(0,0,0,.1),
+     4px 4px 5px 0px rgba(0,0,0,.1);
+    outline: none;
+   
+   
+  }
+  .btn-5 {
+
+    width: 130px;
+    height: 40px;
+    line-height: 42px;
+    padding: 0;
+    border: none;
+    background: #3D3511;
+  background: linear-gradient(0deg, #3D3511 0%, #3D3511 100%);
+  }
+  .btn-5:hover {
+    color: white;
+    background: transparent;
+     box-shadow:none;
+  }
+  .btn-5:before,
+  .btn-5:after{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    height:2px;
+    width:0;
+    background: white;
+    box-shadow:
+     -1px -1px 5px 0px #fff,
+     7px 7px 20px 0px #0003,
+     4px 4px 5px 0px #0002;
+    transition:400ms ease all;
+  }
+  .btn-5:after{
+    right:inherit;
+    top:inherit;
+    left:0;
+    bottom:0;
+  }
+  .btn-5:hover:before,
+  .btn-5:hover:after{
+    width:100%;
+    transition:800ms ease all;
+  }

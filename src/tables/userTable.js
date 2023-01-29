@@ -1,0 +1,67 @@
+import React from 'react'
+
+const UserTable = props => {
+  const handleDeleteUser = id => {
+    let answer = window.confirm('Are you sure?')
+
+    if (answer) {
+      props.deleteUser(id)
+    }
+  }
+  return (
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Middle name</th>
+          <th>Surname</th> 
+          <th>Birth date</th>
+          <th>Adress</th>
+          <th>City</th>
+          <th>Phone Number</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {props.users.length > 0 ? (
+          props.users.map(user => (
+            <tr key={user.id}>
+              <td>{user.id}</td>
+              <td>{user.name}</td>
+              <td>{user.middleName}</td>
+              <td>{user.surname}</td>
+              <td>{user.birthDate}</td>
+              <td>{user.adress}</td>
+              <td>{user.city}</td>
+              <td>{user.phoneNumber}</td>
+              
+              <td>
+                
+                <button
+                  onClick={() => {
+                    props.editRow(user)
+                  }}
+                  className="button muted-button"
+                >
+                  Edit
+                </button>
+                <button
+                  className="button muted-button"
+                  onClick={() => handleDeleteUser(user.id)}
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+          ))
+        ) : (
+          <tr>
+            <td colSpan={8}>No users</td>
+          </tr>
+        )}
+      </tbody>
+    </table>
+  )
+}
+
+export { UserTable }
