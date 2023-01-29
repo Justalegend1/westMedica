@@ -7,24 +7,17 @@ import './App.css'
 var values = [],
         keys = Object.keys(localStorage),
         i = keys.length;
-//   let keyName = localStorage.length+1;
-  const usersData = [{id : 100, name: 'Nikita', surname: 'Evgenievich', middleName: 'Kopylov', 
-  birthDate: '27.03.2002', adress: 'Makarenko', city: 'Perm', phoneNumber: '79519518914'}]
 
-  // localStorage.setItem(localStorage.length+1, JSON.stringify(usersData))
-  // if (i !== 0)
-  // for (let k = 0; k<i; k++)
-  // usersData.push(JSON.parse(localStorage.getItem(k)))
-  // localStorage.setItem(localStorage.length+1, JSON.stringify(usersData))
+  const usersData = []
+  keys.forEach(element => {usersData.push(JSON.parse(localStorage.getItem(element)))
+    
+  });
   
-  // usersData.push(JSON.parse(localStorage.getItem('2')))
+
+  
 const App = () => {
   
-  //  if (i !== 0)
-  //  for (let k = 0; k<i; k++)
-  //  usersData.push(JSON.parse(localStorage.getItem(k)))
-
-  //  console.log(JSON.parse(localStorage.getItem(2)))
+  
   
 
   const [users, setUsers] = useState(usersData)
@@ -36,20 +29,21 @@ const App = () => {
     if (localStorage.length === 0)
     {
     user.id = 1;
-    localStorage.setItem(user.id, JSON.stringify(user), user)
+    
     }
     else{
-    console.log(Math.max(Object.keys(localStorage)))
     var a=Object.keys(localStorage)
-    var max = +a[0]
+    
+    var max = -1;
     for(var i = 0; i < a.length; i++){
+      if (!isNaN(a[i]))
       a[i] = +a[i];
       if(a[i] > max){max = a[i]}
+      user.id = max + 1;
   }
-  console.log(++max)
-    user.id = Number(Math.max(Object.keys(localStorage))) + 1
-    localStorage.setItem(user.id, JSON.stringify(user), user)
+  
     }
+    localStorage.setItem(user.id, JSON.stringify(user), user)
     setUsers([...users, user])
     
   }
@@ -66,6 +60,7 @@ const App = () => {
     setEditing(false)
 
     setUsers(users.map(user => (user.id === id ? updatedUser : user)))
+    localStorage.setItem(id, JSON.stringify(updatedUser))
   }
 
   
