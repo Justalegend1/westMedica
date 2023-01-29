@@ -4,10 +4,6 @@ import { EditUserForm } from './forms/EditUserForm'
 import { UserTable } from './tables/userTable'
 import './App.css'
 
-var values = [],
-        keys = Object.keys(localStorage),
-        i = keys.length;
-
   const usersData = []
   keys.forEach(element => {usersData.push(JSON.parse(localStorage.getItem(element)))
     
